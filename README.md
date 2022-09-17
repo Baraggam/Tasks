@@ -9,4 +9,5 @@ HH:MM:SS // End of the resource\
 name HH:MM:SS duration resource // TASK: name, begin, end, duration (in seconds), the amount of the resource (in MB)\
 name HH:MM:SS duration resource\
 ...\
-"
+"\
+This will generate a "tasks.out" file at the same directory with the results.
