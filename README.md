@@ -1,10 +1,12 @@
 # Manager
-Usage:\
+How to use:\
+Create a "tasks.in" file in the same directory as the java file\
+Fill the file with the information about the resource and the tasks as described below\
 "\
-n // type in the amount of ram\
-HH:MM:SS // type in the start of the resource\
-HH:MM:SS // type in the end of the resource\
-name HH:MM:SS duration resource // name, begin, end, duration (in seconds), the amount of the resource (in MB)\
+n // Resource's Ram\
+HH:MM:SS // Start of the resource\
+HH:MM:SS // End of the resource\
+name HH:MM:SS duration resource // TASK: name, begin, end, duration (in seconds), the amount of the resource (in MB)\
 name HH:MM:SS duration resource\
 ...\
 "
