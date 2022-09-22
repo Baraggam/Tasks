@@ -8,13 +8,13 @@ then run the python file to generate a "results.yaml" file at the same directory
 ram: number\
 begin: "HH:MM:SS"\
 end: "HH:MM:SS"\
-tasks:\
+tasks:
   - name: task1\
     begin: "HH:MM:SS"\
     duration: "HH:MM:SS"\
-    ram: number\
+    ram: number
   - name: task2\
     begin: "HH:MM:SS"\
-    duration: "HH:MM:SS"\
-    ram: number\
+    duration: "HH:MM:SS"
+    ram: number
   ...
