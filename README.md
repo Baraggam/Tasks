@@ -3,18 +3,18 @@ How to use:\
 Create a "data.yaml" file in the same directory as the python file\
 Fill the file with the information about the resource and the tasks as described below\
 "\
-ram: 10000\
-begin: "56:00:54"\
-end: "80:02:00"\
+ram: number\
+begin: "HH:MM:SS"\
+end: "HH:MM:SS"\
 tasks:\
   - name: task1\
-    begin: "81:00:00"\
-    duration: "00:00:01"\
-    ram: 5\
+    begin: "HH:MM:SS"\
+    duration: "HH:MM:SS"\
+    ram: number\
   - name: task2\
-    begin: "90:00:00"\
-    duration: "00:10:49"\
-    ram: 5\
+    begin: "HH:MM:SS"\
+    duration: "HH:MM:SS"\
+    ram: number\
   ...\
 "\
 Run the python file\
