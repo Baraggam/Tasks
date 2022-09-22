@@ -1,31 +1,37 @@
-import input_handler
-import task
-import resource
-import utility
+from resource import *
+from task import *
+from time_handler import *
+import yaml_handler
+
+
+def to_string(name, begin, end):
+	return "task " + name + " will start after \"" + begin + "\" and end after \"" + end + "\""
+
+
+# With the data in hand, this function will return a dictionary with the results
+def dict_Maker(input_data):
+	ram = input_data["ram"]
+	begin = parse(input_data["inicio"])
+	end = parse(input_data["fim"])
+	resource = Resource(ram, begin, end)
+	th = Time_handler(resource)
+	i = 0
+	dict = {}
+	while True:
+		try:
+			name = input_data["tasks"][i]["nome"]
+			begin = parse(input_data["tasks"][i]["inicio"])
+			duration = parse(input_data["tasks"][i]["duracao"])
+			begin = th.get_begin(begin)
+			end = th.get_end(duration)
+			dict[str(i + 1) + "_" +
+				 name] = {'Begin': str(begin), 'End': str(end)}
+			i += 1
+		except IndexError:
+			break
+	return dict
+
 
 input_file_path = "data.yaml"
-input_data = input_handler.load_from_line(input_file_path)
-
-
-# path = pathlib.Path().resolve()
-# fileIn = open(str(path) + "/tasks.in", "r")
-# fileOut = open(str(path) + "/tasks.out", "w")
-# tasks = []
-# resource = Resource()
-# # Type in the amount of RAM
-# resource.setAmount(int(fileIn.readline()))
-# # Type in the begin time
-# resource.setBegin(timeToSec(fileIn.readline()))
-# # Type in the end time
-# resource.setEnd(timeToSec(fileIn.readline()))
-# while True:
-#     try:
-#         # Type in the tasks one per line
-#         s_params = fileIn.readline().split(" ")
-#         tasks.append(Task(s_params[0], timeToSec(
-#             s_params[1]), int(s_params[2]), int(s_params[3])))
-#         fileOut.write(toString(tasks.pop(0), resource) + '\n')
-#     except:
-#         break
-# fileIn .close()
-# fileOut.close()
+input_data = yaml_handler.load_yaml(input_file_path)
+yaml_handler.write_yaml(dict_Maker(input_data), "results.yaml")

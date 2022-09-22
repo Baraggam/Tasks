@@ -1,16 +1,23 @@
-import input_handler
-import manager
+import yaml_handler
+import task
+from resource import *
+from time_handler import *
+import main
 
-def testSetMoment():
-	resource = manager.Resource()
-	resource.setAmount(10000)
-	resource.setBegin(60*60)
-	resource.setEnd(60*60+5)
-	out = resource.setMoment(0, 5)
-	assert out == [60*60, 0, 60*60 + 5 , 0]
+
+def test_timers():
+	begin = parse("56:00:54")
+	end = parse("80:02:00")
+	resource = Resource(1024 * 16, begin, end)
+	th = Time_handler(resource)
+	test_begin = th.get_begin(parse("81:00:00"))
+	teste_end = th.get_end(parse("00:00:01"))
+	assert test_begin == timedelta(
+		hours=152, seconds=54) and teste_end == timedelta(hours=152, seconds=55)
+
 
 def test_load_file():
-	data = input_handler.load_from_line("test.yaml")
-	assert data["ram"] == 0
-	assert data["inicio"] == "00:00:00"
-	assert data["tasks"][0]["Nome"] == "Bruno"
+	data = yaml_handler.load_yaml("data.yaml")
+	assert data["ram"] == 10000
+	assert data["inicio"] == "56:00:54"
+	assert data["tasks"][0]["nome"] == "task1"

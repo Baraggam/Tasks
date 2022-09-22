@@ -1,12 +1,8 @@
-ram: 5000
-inicio: 00:00:00
-fim: 24:00:00
+ram: 10000
+inicio: "56:00:54"
+fim: "80:02:00"
 tasks:
-  - Nome: Bruno
-    Inicio: 00:00:00
-    duracao: 5
-    ram: 5
-  - Nome: Rodrigo
-    Inicio: 00:00:06
-    duracao: 5
+  - nome: task1
+    inicio: "81:00:00"
+    duracao: "00:00:01"
     ram: 5
