@@ -1,14 +1,21 @@
 # Manager
 How to use:\
-Create a "tasks.in" file in the same directory as the java or python file\
+Create a "data.yaml" file in the same directory as the python file\
 Fill the file with the information about the resource and the tasks as described below\
 "\
-n // Resource's Ram\
-HH:MM:SS // Start of the resource\
-HH:MM:SS // End of the resource\
-name HH:MM:SS duration resource // TASK: name, begin, end, duration (in seconds), the amount of the resource (in MB)\
-name HH:MM:SS duration resource\
-...\
+ram: 10000\
+begin: "56:00:54"\
+end: "80:02:00"\
+tasks:\
+  - name: task1\
+    begin: "81:00:00"\
+    duration: "00:00:01"\
+    ram: 5\
+  - name: task2\
+    begin: "90:00:00"\
+    duration: "00:10:49"\
+    ram: 5\
+  ...\
 "\
-Compile one of them and run\
-This will generate a "tasks.out" file at the same directory with the results.
+Run the python file\
+This will generate a "results.yaml" file at the same directory with the results.

@@ -19,5 +19,5 @@ def test_timers():
 def test_load_file():
 	data = yaml_handler.load_yaml("data.yaml")
 	assert data["ram"] == 10000
-	assert data["inicio"] == "56:00:54"
-	assert data["tasks"][0]["nome"] == "task1"
+	assert data["begin"] == "56:00:54"
+	assert data["tasks"][0]["name"] == "task1"
