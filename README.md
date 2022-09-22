@@ -16,5 +16,5 @@ tasks:
   - name: task2\
     begin: "HH:MM:SS"\
     duration: "HH:MM:SS"\
-    ram: number
-  \...
+    ram: number\
+    ...
