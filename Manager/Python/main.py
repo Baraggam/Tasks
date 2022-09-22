@@ -15,20 +15,14 @@ def dict_Maker(input_data):
 	end = parse(input_data["fim"])
 	resource = Resource(ram, begin, end)
 	th = Time_handler(resource)
-	i = 0
 	dict = {}
-	while True:
-		try:
-			name = input_data["tasks"][i]["nome"]
-			begin = parse(input_data["tasks"][i]["inicio"])
-			duration = parse(input_data["tasks"][i]["duracao"])
-			begin = th.get_begin(begin)
-			end = th.get_end(duration)
-			dict[str(i + 1) + "_" +
-				 name] = {'Begin': str(begin), 'End': str(end)}
-			i += 1
-		except IndexError:
-			break
+	for i in range(0, len(input_data["tasks"])):
+		name = input_data["tasks"][i]["nome"]
+		begin = parse(input_data["tasks"][i]["inicio"])
+		duration = parse(input_data["tasks"][i]["duracao"])
+		begin = th.get_begin(begin)
+		end = th.get_end(duration)
+		dict[str(i + 1) + "_" +	name] = {'Begin': str(begin), 'End': str(end)}
 	return dict
 
 
