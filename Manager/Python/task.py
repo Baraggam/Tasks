@@ -1,11 +1,12 @@
 from dataclasses import dataclass
+from datetime import timedelta
 
 
 @dataclass
 class Task:
 	_name: str
-	_begin: int
-	_duration: int
+	_begin: timedelta
+	_duration: timedelta
 	_resource: int
 
 	@property
