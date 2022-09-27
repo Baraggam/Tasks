@@ -2,11 +2,47 @@ ram: 10000
 begin: "56:00:54"
 end: "80:02:00"
 tasks:
-  - name: task1
+  - name: task_1
     begin: "81:00:00"
     duration: "00:00:01"
     ram: 5
-  - name: task2
+  - name: task_2
     begin: "90:00:00"
     duration: "00:10:49"
+    ram: 5
+  - name: task_3
+    begin: "81:00:00"
+    duration: "00:00:01"
+    ram: 5
+  - name: task_4
+    begin: "90:00:00"
+    duration: "00:10:49"
+    ram: 5
+  - name: task_5
+    begin: "81:00:00"
+    duration: "00:00:01"
+    ram: 5
+  - name: task_6
+    begin: "90:00:00"
+    duration: "00:10:49"
+    ram: 5
+  - name: task_7
+    begin: "81:00:00"
+    duration: "00:00:01"
+    ram: 5
+  - name: task_8
+    begin: "90:00:00"
+    duration: "00:10:49"
+    ram: 5
+  - name: task_9
+    begin: "81:00:00"
+    duration: "00:00:01"
+    ram: 5
+  - name: task_10
+    begin: "90:00:00"
+    duration: "00:10:49"
+    ram: 5
+  - name: task_11
+    begin: "81:00:00"
+    duration: "00:00:01"
     ram: 5

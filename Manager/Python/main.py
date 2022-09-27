@@ -1,31 +1,34 @@
-from resource import *
-from task import *
-from time_handler import *
+from resource import Resource
+from task import Task
+from time_handler import TimeHandler
+from time_handler import str_to_int
 import yaml_handler
 
 
-def to_string(name, begin, end):
-	return "task " + name + " will start after \"" + begin + "\" and end after \"" + end + "\""
+# Start the variables environment
+def start(input_data):
+	ram = input_data["ram"]
+	begin = str_to_int(input_data["begin"])
+	end = str_to_int(input_data["end"])
+	resource = Resource(ram, begin, end)
+	time_handler = TimeHandler(begin, end)
+	return resource, time_handler
 
 
 # With the data in hand, this function will return a dictionary with the results
-def dict_Maker(input_data):
-	ram = input_data["ram"]
-	begin = parse(input_data["begin"])
-	end = parse(input_data["end"])
-	resource = Resource(ram, begin, end)
-	th = Time_handler(resource)
-	dict = {}
-	for i in range(0, len(input_data["tasks"])):
-		name = input_data["tasks"][i]["name"]
-		begin = parse(input_data["tasks"][i]["begin"])
-		duration = parse(input_data["tasks"][i]["duration"])
-		begin = th.get_begin(begin)
-		end = th.get_end(duration)
-		dict[str(i + 1) + "_" +	name] = {'Begin': str(begin), 'End': str(end)}
-	return dict
+def dict_Maker(input_data, resource, time_handler):
+	results = {}
+	for task in input_data["tasks"]:
+		name = task["name"]
+		begin = str_to_int(task["begin"])
+		duration = str_to_int(task["duration"])
+		results[name] = {'Begin': str(time_handler.get_available_begin(
+			begin)), 'End': str(time_handler.get_available_end(duration))}
+	return results
 
 
 input_file_path = "data.yaml"
 input_data = yaml_handler.load_yaml(input_file_path)
-yaml_handler.write_yaml(dict_Maker(input_data), "results.yaml")
+resource, time_handler = start(input_data)
+results = dict_Maker(input_data, resource, time_handler)
+yaml_handler.write_yaml(results, "results.yaml")

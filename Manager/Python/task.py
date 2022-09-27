@@ -3,19 +3,23 @@ from dataclasses import dataclass
 
 @dataclass
 class Task:
-	__name: str
-	__begin: int
-	__time: int
-	__resource: int
+	_name: str
+	_begin: int
+	_duration: int
+	_resource: int
 
-	def getName(self):
-		return self.__name
+	@property
+	def name(self):
+		return self._name
 
-	def getBegin(self):
-		return self.__begin
+	@property
+	def begin(self):
+		return self._begin
 
-	def getTime(self):
-		return self.__time
+	@property
+	def duration(self):
+		return self._duration
 
-	def getResource(self):
-		return self.__resource
+	@property
+	def resource(self):
+		return self._resource

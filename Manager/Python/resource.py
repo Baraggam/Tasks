@@ -4,15 +4,18 @@ from datetime import timedelta
 
 @dataclass
 class Resource:
-	__amount: int = 1024 * 16  # Default value (in MB)
-	__begin: timedelta = timedelta(seconds=0)  # Default value
-	__end: timedelta = timedelta(hours=24)  # Default value
+	_amount: int = 1024 * 16  # Default value (in MB)
+	_begin: timedelta = timedelta(seconds=0)  # Default value
+	_end: timedelta = timedelta(hours=24)  # Default value
 
-	def getAmount(self):
-		return self.__amount
+	@property
+	def amount(self):
+		return self._amount
 
-	def getBegin(self):
-		return self.__begin
+	@property
+	def begin(self):
+		return self._begin
 
-	def getEnd(self):
-		return self.__end
+	@property
+	def end(self):
+		return self._end
